@@ -1,4 +1,4 @@
-# Molnár-Farkas Noel - NetGo
+# Molnár-Farkas Noel - NetGo -	Online mobil csomag vásárlás
 
 ## I. mérföldkő: 
 ### Segítsgül, hogy megkönnyítsem a dolgod (de persze nyugodtan leellenőrizheted 😎)
