@@ -1,0 +1,179 @@
+.tariffs-header {
+    text-align: center;
+    margin-top: 30px;
+    margin-bottom: 20px;
+}
+
+.tariffs-header h1 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 15px;
+    color: #0a233f;
+  }
+
+.tariffs-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    padding: 20px;
+    max-width: 960px;
+    margin: auto;
+}
+
+.tariff-card {
+    background-color: #0a233f;
+    color: white;
+    height: auto;
+    border-radius: 10px;
+    text-align: center;
+    font-size: 1.2rem;
+    padding: 20px;
+    transition: transform 0.2s;
+    border-bottom: 10px solid #c7ff00;
+}
+
+.tariff-card:hover {
+    transform: scale(1.03);
+}
+
+mat-card-header {
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+mat-card-title {
+    font-size: 1.3rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.icon-container {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-bottom: 30px;
+}
+  
+.icon-row {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+  
+.icon {
+    font-size: 35px;
+}
+  
+.icon-item {
+    font-size: 1.2rem;
+    color: white;
+}
+
+.extra {
+    font-size: 1rem;
+    color: white;
+    margin-bottom: 10px;
+}
+
+.tariff-price {
+    font-size: 1.6rem;
+    font-weight: bold;
+    color: white;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+}
+
+.tariff-unit {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 1.1rem;
+    line-height: 1;
+}
+
+.unit-top {
+    font-weight: bold;
+}
+
+.unit-bottom {
+    font-size: 1rem;
+    opacity: 0.8;
+}
+
+.buy-button {
+    background-color: #c7ff00;
+    color: black;
+    font-weight: bold;
+    font-size: 1rem;
+    padding: 10px;
+    border-radius: 5px;
+    width: 100%;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out;
+}
+
+.buy-button:hover {
+    background-color: #B0E600;
+}
+
+/* Reszponzív beállítások */
+@media (max-width: 1024px) {
+    .tariffs-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .tariffs-container {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+    }
+
+    .tariff-card {
+        font-size: 1.1rem;
+        padding: 15px;
+    }
+
+    .icon {
+        font-size: 30px;
+    }
+}
+
+@media (max-width: 600px) {
+    .tariffs-container {
+        grid-template-columns: repeat(1, 1fr);
+    }
+
+    .tariff-card {
+        font-size: 1rem;
+        padding: 10px;
+    }
+
+    .buy-button {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .tariffs-container {
+        grid-template-columns: repeat(1, 1fr);
+        padding: 10px;
+    }
+
+    .tariff-card {
+        font-size: 0.9rem;
+        padding: 10px;
+    }
+
+    .icon {
+        font-size: 28px;
+    }
+
+    .buy-button {
+        font-size: 0.9rem;
+    }
+}

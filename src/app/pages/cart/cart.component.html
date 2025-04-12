@@ -1,0 +1,43 @@
+<div class="cart-container">
+  <h1>Kosár</h1>
+  <mat-card *ngFor="let item of cartItems">
+    <mat-card-content>
+      <div class="cart-header">
+        <span>KOSÁRBAN TALÁLHATÓ TERMÉK ({{ cartItems.length }})</span>
+      </div>
+      <mat-divider></mat-divider>
+      <div class="cart-item">
+        <div class="item-info">
+          <div class="item-details">
+            <h2>{{ item.name }}</h2>
+          </div>
+        </div>
+        <div class="item-actions">
+          <button mat-icon-button color="warn" (click)="removeFromCart(item)">
+            <mat-icon>delete</mat-icon>
+          </button>
+          <div class="item-price">{{ item.price | number }} Ft / hó</div>
+        </div>
+      </div>
+    </mat-card-content>
+  </mat-card>
+  <br>
+  <mat-card>
+    <mat-card-content>
+      <div class="summary-header">
+        <h2>Összesen</h2>
+      </div>
+      <mat-divider></mat-divider>
+      <div class="summary-details">
+        <div class="detail-item total">
+          <span>Havonta fizetendő</span>
+          <span>{{ totalPrice | number }} Ft / hó</span>
+        </div>
+      </div>
+    </mat-card-content>
+  </mat-card>
+  <div class="action-buttons">
+    <button mat-raised-button (click)="goBackToTariffs()">Vissza a tarifákhoz</button>
+    <button mat-raised-button>Megrendelem</button>
+  </div>
+</div>

@@ -1,0 +1,253 @@
+/* Alapértelmezett stílusok */
+
+.header {
+  text-align: left;
+  margin-top: 30px;
+  margin-bottom: 20px;
+  margin-left: 100px;
+}
+
+.header-icon {
+  width: 60px;
+  height: 60px;
+}
+
+.header span {
+  font-size: 1.5rem;
+  margin-bottom: 15px;
+  color: #333;
+}
+
+.header h1 {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 15px;
+  color: #333;
+}
+
+.header-button {
+  background-color: #c6ff00;
+  color: #000;
+  border: none;
+  padding: 10px 20px;
+  font-size: 1rem;
+  font-weight: bold;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.header-button:hover {
+  background-color: #a3cc00;
+}
+
+.cards-container {
+  display: flex;
+  margin-top: 40px;
+  padding-bottom: 30px;
+  gap: 40px;
+  justify-content: center;
+}
+
+.container {
+  max-width: 800px;
+  min-height: 250px;
+  background-color: #c6ff00;
+  display: flex;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 10px #808080;
+}
+
+.container-info {
+  max-width: 40%;
+  margin-right: 15px;
+}
+
+.container-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.container-info h3 {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #0a233f;
+  margin-bottom: 15px;
+}
+
+.container-info p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: #0a233f;
+  margin-bottom: 20px;
+}
+
+.container-price {
+  margin-top: auto;
+}
+
+.container-price span {
+  font-size: 1rem;
+  color: #777;
+}
+
+.container-price h2 {
+  font-size: 2.4rem;
+  font-weight: bold;
+  color: #0a233f;
+}
+
+.currency {
+  font-size: 1.4rem;
+}
+
+.small-text {
+  font-size: 0.9rem;
+  color: #777;
+}
+
+.container-image {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 60%;
+}
+
+.container-image img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+/* Reszponzív stílusok */
+
+@media (max-width: 1200px) {
+  .header {
+    margin-left: 50px;
+  }
+
+  .header h1 {
+    font-size: 1.8rem;
+  }
+
+  .cards-container {
+    gap: 20px;
+  }
+
+  .container {
+    max-width: 90%;
+  }
+
+  .container-info {
+    max-width: 45%;
+  }
+
+  .container-info h3 {
+    font-size: 1.6rem;
+  }
+
+  .container-info p {
+    font-size: 1rem;
+  }
+
+  .container-price h2 {
+    font-size: 2rem;
+  }
+
+  .container-image {
+    max-width: 50%;
+  }
+}
+
+@media (max-width: 768px) {
+  .header {
+    margin-left: 20px;
+    text-align: center;
+  }
+
+  .header h1 {
+    font-size: 1.6rem;
+  }
+
+  .cards-container {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .container {
+    flex-direction: column;
+    max-width: 100%;
+  }
+
+  .container-info {
+    max-width: 100%;
+    margin-right: 0;
+  }
+
+  .container-info h3 {
+    font-size: 1.4rem;
+  }
+
+  .container-info p {
+    font-size: 1rem;
+  }
+
+  .container-price h2 {
+    font-size: 1.8rem;
+  }
+
+  .container-image {
+    max-width: 100%;
+  }
+
+  .container-price {
+    margin-top: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .header {
+    margin-left: 10px;
+  }
+
+  .header h1 {
+    font-size: 1.4rem;
+  }
+
+  .header span {
+    font-size: 1.2rem;
+  }
+
+  .header-icon {
+    width: 50px;
+    height: 50px;
+  }
+
+  .container-info h3 {
+    font-size: 1.2rem;
+  }
+
+  .container-info p {
+    font-size: 0.9rem;
+  }
+
+  .container-price h2 {
+    font-size: 1.6rem;
+  }
+
+  .container-price span {
+    font-size: 0.9rem;
+  }
+
+  .container-image img {
+    width: 80%; /* Kép szélessége csökkentve, hogy jobban illeszkedjen */
+    max-height: 200px;
+  }
+
+  .container-price {
+    margin-top: 15px;
+  }
+}

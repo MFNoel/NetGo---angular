@@ -1,0 +1,35 @@
+<div class="tariffs-header">
+  <h1>NetGo Tarifák</h1>
+</div>
+<div class="tariffs-container">
+  <mat-card *ngFor="let tariff of tariffs" class="tariff-card">
+    <mat-card-header>
+      <mat-card-title>{{ tariff.name }}</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <div class="icon-container">
+        <div class="icon-row">
+          <div class="icon">🌍</div>
+          <div class="icon-item">{{ tariff.internet }}</div>
+        </div>
+        <div class="icon-row">
+          <div class="icon">📞</div>
+          <div class="icon-item">{{ tariff.calls }}</div>
+        </div>
+      </div>
+      <p class="extra">{{ tariff.extra1 }}</p>
+      <p class="extra">{{ tariff.extra2 }}</p>
+      <p class="extra">{{ tariff.extra3 }}</p>
+      <p class="tariff-price">
+        {{ tariff.price | priceFormat }} 
+        <span class="tariff-unit">
+          <span class="unit-top">Ft</span>
+          <span class="unit-bottom">/hó</span>
+        </span>
+      </p>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-button color="primary" class="buy-button" (click)="addToCart(tariff)">Kosárba rakom</button>
+    </mat-card-actions>
+  </mat-card>
+</div>

@@ -1,0 +1,21 @@
+<mat-nav-list>
+  <a mat-list-item routerLink="/" routerLinkActive="active-list-item" (click)="closeMenu()">
+    <span matListItemTitle>Kezdőlap</span>
+  </a>
+  <a mat-list-item routerLink="/tariffs" routerLinkActive="active-list-item" (click)="closeMenu()">
+    <mat-icon matListItemIcon>assignment</mat-icon>
+    <span matListItemTitle>Tarifák</span>
+  </a>
+  <a mat-list-item routerLink="/cart" routerLinkActive="active-list-item" (click)="closeMenu()">
+    <mat-icon matListItemIcon>shopping_cart</mat-icon>
+    <span matListItemTitle>Kosár</span>
+  </a>
+  <a mat-list-item routerLink="/profile" routerLinkActive="active-list-item" (click)="closeMenu()">
+    <mat-icon matListItemIcon>person</mat-icon>
+    <span matListItemTitle>Profil</span>
+  </a>
+  <a mat-list-item routerLink="/login" routerLinkActive="active-list-item" (click)="closeMenu()">
+    <mat-icon matListItemIcon>login</mat-icon>
+    <span matListItemTitle>Bejelentkezés</span>
+  </a>
+</mat-nav-list>

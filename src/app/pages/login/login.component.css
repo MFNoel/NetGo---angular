@@ -1,0 +1,238 @@
+.container {
+    margin: 30px auto 20px auto;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25),
+                0 10px 10px rgba(0, 0, 0, 0.22);
+    position: relative;
+    overflow: hidden;
+    width: 900px;
+    max-width: 100%;
+    min-height: 600px;
+    font-family: 'Segoe UI', sans-serif;
+    display: flex;
+}
+
+.forms-container {
+    width: 100%;
+    display: flex;
+    position: relative;
+}
+
+.form-wrapper {
+    width: 40%;
+    padding: 0 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: #fff;
+    transition: opacity 0.5s ease;
+    position: absolute;
+    top: 0;
+    height: 100%;
+}
+
+.sign-in-form {
+    left: 0;
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.sign-up-form {
+    right: 0;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.container.sign-up-mode .sign-in-form {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.container.sign-up-mode .sign-up-form {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.form-wrapper h2 {
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #0a233f;
+}
+
+mat-form-field {
+    width: 100%;
+    margin: 10px 0;
+}
+
+.form-wrapper button {
+    border: none;
+    padding: 12px 45px;
+    background-color: #c6ff00;
+    color: #0a233f;
+    font-size: 14px;
+    font-weight: bold;
+    border-radius: 20px;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: background-color 0.3s ease;
+}
+
+.form-wrapper button:hover {
+    background-color: #B0E600;
+}
+
+.overlay-container {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 50%;
+    height: 100%;
+    overflow: hidden;
+    transition: transform 0.6s ease-in-out;
+    z-index: 100;
+}
+
+.overlay {
+    background: #0a233f;
+    color: white;
+    position: relative;
+    left: -100%;
+    height: 100%;
+    width: 200%;
+    transform: translateX(0);
+    transition: transform 0.6s ease-in-out;
+    display: flex;
+    align-items: center;
+}
+
+.overlay-panel {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0 40px;
+    width: 50%;
+    transition: transform 0.6s ease-in-out;
+}
+
+.overlay-left {
+    transform: translateX(-20%);
+}
+
+.overlay-right {
+    right: 0;
+    transform: translateX(0);
+}
+
+.overlay-panel .ghost {
+    background-color: #c6ff00;
+    border: 1px solid #c6ff00;
+    color: #0a233f;
+    font-weight: bold;
+    border-radius: 20px;
+    padding: 12px 45px;
+    margin-top: 20px;
+    cursor: pointer;
+    font-size: 12px;
+    text-transform: uppercase;
+    transition: background-color 0.3s ease;
+}
+
+.overlay-panel .ghost:hover {
+    background-color: #B0E600;
+}
+
+.container.sign-up-mode .overlay-container {
+    transform: translateX(-100%);
+}
+
+.container.sign-up-mode .overlay {
+    transform: translateX(50%);
+}
+
+.container.sign-up-mode .overlay-left {
+    transform: translateX(0);
+}
+
+.container.sign-up-mode .overlay-right {
+    transform: translateX(20%);
+}
+
+.mobile-toggle-buttons {
+    display: none;
+    justify-content: center;
+    margin-bottom: 20px; 
+}
+  
+.mobile-toggle-buttons button {
+    border: none;
+    padding: 12px 45px;
+    background-color: #c6ff00;
+    color: #0a233f;
+    font-size: 14px;
+    font-weight: bold;
+    border-radius: 20px;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: background-color 0.3s ease;
+}
+  
+.mobile-toggle-buttons button:hover {
+    background-color: #B0E600;
+}
+  
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        width: 80%;
+        min-height: auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .overlay-container {
+        display: none;
+    }
+
+    .forms-container {
+        position: static;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .form-wrapper {
+        margin-top: 10px;
+        position: static;
+        width: 100%;
+        opacity: 0;
+        pointer-events: none;
+        transition: none;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    mat-form-field {
+        width: 80%;
+    }
+
+    .container:not(.sign-up-mode) .sign-in-form {
+        opacity: 1;
+        pointer-events: auto;
+    }
+
+    .container.sign-up-mode .sign-up-form {
+        opacity: 1;
+        pointer-events: auto;
+    }
+
+    .mobile-toggle-buttons {
+        display: flex;
+        justify-content: center;
+    }
+}

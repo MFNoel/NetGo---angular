@@ -1,0 +1,30 @@
+mat-nav-list {
+    background-color: #c7ff00;
+    padding: 10px;
+}
+
+a.mat-list-item {
+    display: flex;
+    align-items: center;
+    padding: 12px 20px;
+    text-decoration: none;
+    color: #0a233f;
+    font-size: 18px;
+    font-weight: bold;
+    transition: background 0.3s ease-in-out;
+    border-radius: 5px;
+}
+
+a.mat-list-item:hover {
+    background-color: white;
+}
+
+mat-icon[matListItemIcon] {
+    color: #0a233f;
+    margin-right: 15px;
+    font-size: 24px;
+}
+
+span[matListItemTitle] {
+    flex-grow: 1;
+}

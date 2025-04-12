@@ -1,0 +1,67 @@
+<div class="container" [class.sign-up-mode]="isRegisterMode">
+  <div class="forms-container">
+    
+    <!-- Bejelentkezés form -->
+    <form #loginForm="ngForm" (ngSubmit)="login()" class="form-wrapper sign-in-form" *ngIf="!isRegisterMode">
+      <h2>Bejelentkezés</h2>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Email</mat-label>
+        <input matInput type="email" required name="email" ngModel />
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Jelszó</mat-label>
+        <input matInput type="password" required name="password" ngModel />
+      </mat-form-field>
+
+      <button mat-button color="primary" type="submit">Bejelentkezés</button>
+    </form>
+
+    <!-- Regisztrációs form -->
+    <form #registerForm="ngForm" (ngSubmit)="register()" class="form-wrapper sign-up-form" *ngIf="isRegisterMode">
+      <h2>Regisztráció</h2>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Név</mat-label>
+        <input matInput required name="name" ngModel />
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Email</mat-label>
+        <input matInput type="email" required name="email" ngModel />
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Jelszó</mat-label>
+        <input matInput type="password" required name="password" ngModel />
+      </mat-form-field>
+
+      <button mat-button color="accent" type="submit">Regisztráció</button>
+    </form>
+
+  </div>
+
+  <!-- Animált overlay -->
+  <div class="overlay-container">
+    <div class="overlay">
+      <div class="overlay-panel overlay-left">
+        <h2>Üdv újra!</h2>
+        <p>Kérjük, jelentkezz be személyes adataiddal!</p>
+        <button class="ghost" (click)="toggleMode()">Bejelentkezés</button>
+      </div>
+      <div class="overlay-panel overlay-right">
+        <h2>Szia! Üdvözöllek!</h2>
+        <p>Kérjük, írd be személyes adataidat a kezdéshez!</p>
+        <button class="ghost" (click)="toggleMode()">Regisztráció</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Mobil mód gomb -->
+  <div class="mobile-toggle-buttons">
+    <button (click)="isRegisterMode = !isRegisterMode">
+      {{ isRegisterMode ? 'Bejelentkezés' : 'Regisztráció' }}
+    </button>
+  </div>
+</div>

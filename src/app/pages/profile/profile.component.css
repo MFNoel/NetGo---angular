@@ -1,0 +1,10 @@
+* {
+    margin-top: 50px;
+    margin-bottom: 300px;
+}
+
+p {
+    color: red;
+    font-weight: bold;
+    text-align: center;
+}

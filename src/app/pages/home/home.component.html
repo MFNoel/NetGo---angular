@@ -1,0 +1,24 @@
+<div class="header">
+  <mat-icon>assignment</mat-icon>
+  <span mat-list-item-title>Tarifák</span>
+  <h1>Válaszd új számlás és kártyás tarifacsomagjainkat!</h1>
+  <button mat-raised-button class="header-button" [routerLink]="['/tariffs']">Összes tarifa</button>
+</div>
+
+<div class="cards-container">
+  <mat-card *ngFor="let tariff of tariffs" class="card">
+    <div class="container">
+      <div class="container-info">
+        <h3>{{ tariff.title }}</h3>
+        <p>{{ tariff.description }}</p>
+        <div class="container-price">
+          <span>Akár havi</span>
+          <h2>{{ tariff.price }} <span class="currency">{{ tariff.currency }}</span> <span class="small-text">-tól</span></h2>
+        </div>
+      </div>
+      <div class="container-image">
+        <img [src]="tariff.image" alt="{{ tariff.title }} ikon" />
+      </div>
+    </div>
+  </mat-card>
+</div>
