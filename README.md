@@ -1,5 +1,7 @@
 # Molnár-Farkas Noel - NetGo -	Online mobil csomag vásárlás
 
+Ha bármiféle kérdésed vagy esetleg problémád lenne itt megtalálsz engemet: DC: mfnoel03
+
 ## II. mérföldkő: 
 ### Segítsgül, hogy megkönnyítsem a dolgod (de persze nyugodtan leellenőrizheted 😎)
 Elvileg ha mindent jól számoltam 42 pontot ér az egész.
