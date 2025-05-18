@@ -5,7 +5,7 @@
     "indexes": "firestore.indexes.json"
   },
   "hosting": {
-    "public": "dist/net-go/browser",
+    "public": "dist/net-go/browser/",
     "ignore": [
       "firebase.json",
       "**/.*",
