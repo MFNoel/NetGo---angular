@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "NetGo": {
+    "netgo": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -35,7 +35,7 @@
               "budgets": [
                 {
                   "type": "initial",
-                  "maximumWarning": "500kB",
+                  "maximumWarning": "1000kB",
                   "maximumError": "1MB"
                 },
                 {
@@ -58,10 +58,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "NetGo:build:production"
+              "buildTarget": "netgo:build:production"
             },
             "development": {
-              "buildTarget": "NetGo:build:development"
+              "buildTarget": "netgo:build:development"
             }
           },
           "defaultConfiguration": "development"

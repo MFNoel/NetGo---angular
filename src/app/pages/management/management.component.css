@@ -1,0 +1,153 @@
+.container {
+  margin: 30px auto 20px auto;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25),
+              0 10px 10px rgba(0, 0, 0, 0.22);
+  position: relative;
+  overflow: hidden;
+  width: 1000px;
+  max-width: 100%;
+  min-height: 600px;
+  font-family: 'Segoe UI', sans-serif;
+  display: flex;
+  flex-direction: column;
+}
+
+.preview-card-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 30px;
+}
+
+.preview-input {
+  background: transparent;
+  border: 1px dashed rgba(255, 255, 255, 0.5);
+  border-radius: 4px;
+  color: white;
+  width: 100%;
+  margin: 2px 0;
+  text-align: center;
+  font-family: inherit;
+}
+
+.preview-input::placeholder {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.preview-input:focus {
+  outline: none;
+  border-color: #c7ff00;
+  box-shadow: 0 0 0 2px rgba(199, 255, 0, 0.2);
+}
+
+.title-input {
+  font-size: 1.3rem;
+  font-weight: bold;
+  background: transparent;
+  width: 100%;
+}
+
+.icon-container {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  margin-bottom: 30px;
+}
+  
+.icon-row {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.icon {
+  font-size: 35px;
+}
+  
+.icon-item {
+  font-size: 1.2rem;
+  color: white;
+  width: 100%;
+  text-align: center;
+}
+
+.extra {
+  font-size: 1rem;
+  color: white;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.tariff-price {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  margin-top: 15px;
+}
+
+.price-input {
+  font-size: 1.6rem;
+  font-weight: bold;
+  color: white;
+  width: auto;
+  max-width: 100px;
+  text-align: center;
+}
+
+.tariff-unit {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 1.1rem;
+  line-height: 1;
+}
+
+.unit-top {
+  font-weight: bold;
+}
+
+.unit-bottom {
+  font-size: 1rem;
+  opacity: 0.8;
+}
+
+.form-wrapper .tariff-card {
+  background-color: #0a233f;
+  color: white;
+  height: auto;
+  border-radius: 10px;
+  text-align: center;
+  font-size: 1.2rem;
+  padding: 20px;
+  transition: transform 0.2s;
+  border-bottom: 10px solid #c7ff00;
+  width: 300px;
+  margin: 0 auto;
+}
+
+.form-wrapper h2 {
+  padding-top: 20px;
+    text-align: center;
+}
+
+.button-group {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+mat-table {
+  width: 100%;
+  margin-top: 20px;
+}
+
+mat-header-cell, mat-cell {
+  padding: 12px;
+}
+
+mat-icon {
+  cursor: pointer;
+}

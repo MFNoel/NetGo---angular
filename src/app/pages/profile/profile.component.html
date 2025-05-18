@@ -1,1 +1,48 @@
-<p>WORK IN PROGRESS!</p>
+<div class="profile-container">
+  <mat-card class="mat-elevation-z4">
+    <mat-card-content>
+      <ng-container *ngIf="user; else noUser">
+        <div class="profile-info">
+          <div class="avatar-container">
+            <div class="avatar">
+              <span>{{ user.name.charAt(0).toUpperCase() }}</span>
+            </div>
+          </div>
+
+          <div class="user-details">
+            <h2 class="user-name">{{ user.name }}</h2>
+            <div class="user-detail">
+              <mat-icon>email</mat-icon>
+              <span>{{ user.email }}</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="tariff-section" *ngIf="tariffs.length > 0; else noTariff">
+          <h3>Aktuális előfizetés</h3>
+          <div class="cart-item" *ngFor="let tariff of tariffs">
+            <div class="item-info">
+              <div class="item-details">
+                <h2>{{ user.tariff.name }}</h2>
+              </div>
+            </div>
+            <div class="item-actions">
+              <div class="item-price">{{ tariff.price | number }} Ft / hó</div>
+            </div>
+          </div>
+        </div>
+
+        <ng-template #noTariff>
+          <p>Nincs aktív előfizetésed.</p>
+        </ng-template>
+      </ng-container>
+
+      <ng-template #noUser>
+        <div class="empty-state">
+          <mat-icon>person_off</mat-icon>
+          <p>Nincs felhasználói profil betöltve. Jelentkezz be.</p>
+        </div>
+      </ng-template>
+    </mat-card-content>
+  </mat-card>
+</div>

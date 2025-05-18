@@ -13,7 +13,7 @@
           </div>
         </div>
         <div class="item-actions">
-          <button mat-icon-button color="warn" (click)="removeFromCart(item)">
+          <button mat-icon-button color="warn" (click)="removeFromCart()">
             <mat-icon>delete</mat-icon>
           </button>
           <div class="item-price">{{ item.price | number }} Ft / hó</div>
@@ -38,6 +38,6 @@
   </mat-card>
   <div class="action-buttons">
     <button mat-raised-button (click)="goBackToTariffs()">Vissza a tarifákhoz</button>
-    <button mat-raised-button>Megrendelem</button>
+    <button mat-raised-button (click)="order()">Megrendelem</button>
   </div>
 </div>

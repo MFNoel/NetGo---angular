@@ -1,6 +1,6 @@
 <mat-sidenav-container>
     <mat-sidenav #sidenav>
-      <app-menu [sidenav]="sidenav"></app-menu>
+      <app-menu [sidenav]="sidenav" [isLoggedIn]="isLoggedIn" (logoutEvent)="logout()"></app-menu>
     </mat-sidenav>
     <mat-sidenav-content>
       <mat-toolbar>
@@ -14,12 +14,18 @@
             <ul class="left-section">
                 <li><a routerLink="/" class="name">NetGo</a></li>
                 <li><a routerLink="/home">Kezdőlap</a></li>
+                <li><a routerLink="/management">Tarifák kezelése</a></li>
                 <li><a routerLink="/tariffs">Tarifák</a></li>
             </ul>
             <ul class="right-section">
                 <li><a routerLink="/cart">Kosár</a></li>
-                <li><a routerLink="/profile">Profil</a></li>
-                <li><a routerLink="/login" class="login-button">Belépés</a></li>
+                @if (isLoggedIn) {
+                  <li><a routerLink="/profile">Profil</a></li>
+                  <li><a href="#" (click)="$event.preventDefault(); logout()">Kijelentkezés</a></li>
+                }
+                @if (!isLoggedIn) {
+                  <li><a routerLink="/login">Belépés</a></li>
+                }
             </ul>
         </nav>
       </mat-toolbar>

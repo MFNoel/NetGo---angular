@@ -5,7 +5,9 @@ import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatDividerModule } from '@angular/material/divider';
-import { CartService } from '../../services/cart.service';
+import { TariffService } from '../../shared/services/tariff.service';
+import { AuthService } from '../../shared/services/auth.service';
+import { take } from 'rxjs/operators';
 
 @Component({
   selector: 'app-cart',
@@ -24,7 +26,11 @@ export class CartComponent implements OnInit {
   totalPrice = 0;
 
   
-constructor(private cartService: CartService, private router: Router) {}
+constructor(
+  private cartService: TariffService,
+  private router: Router,
+  private authService: AuthService
+) {}
 
   ngOnInit() {
     this.cartService.cartItems$.subscribe(items => {
@@ -33,11 +39,34 @@ constructor(private cartService: CartService, private router: Router) {}
     });
   }
 
-  removeFromCart(item: any) {
-    this.cartService.removeFromCart(item);
+  removeFromCart() {
+    this.cartService.removeFromCart();
   }
 
   goBackToTariffs() {
     this.router.navigate(['/tariffs']);
+  }
+
+  async order() {
+    const user = await this.authService.currentUser.pipe(take(1)).toPromise();
+
+    if (!user) {
+      this.router.navigate(['/login']);
+      return;
+    }
+
+    if (this.cartItems.length === 0) {
+      alert('A kosár üres. Először válassz ki egy tarifát!');
+      return;
+    }
+
+    try {
+      await this.cartService.placeOrder();
+      alert('Sikeres megrendelés!');
+      this.router.navigate(['/tariffs']);
+    } catch (error) {
+      console.error('Rendelés közben hiba történt:', error);
+      alert('Hiba történt a rendelés során.');
+    }
   }
 }

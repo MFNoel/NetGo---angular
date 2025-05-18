@@ -1,43 +1,74 @@
 <div class="container" [class.sign-up-mode]="isRegisterMode">
   <div class="forms-container">
-    
+
     <!-- Bejelentkezés form -->
-    <form #loginForm="ngForm" (ngSubmit)="login()" class="form-wrapper sign-in-form" *ngIf="!isRegisterMode">
+    <form [formGroup]="loginForm" (ngSubmit)="login()" class="form-wrapper sign-in-form" *ngIf="!isRegisterMode">
       <h2>Bejelentkezés</h2>
 
       <mat-form-field appearance="fill">
         <mat-label>Email</mat-label>
-        <input matInput type="email" required name="email" ngModel />
+        <input matInput type="email" formControlName="email" />
+        <mat-error *ngIf="loginForm.get('email')?.invalid && loginForm.get('email')?.touched">
+          Adj meg egy érvényes email címet!
+        </mat-error>
       </mat-form-field>
 
       <mat-form-field appearance="fill">
         <mat-label>Jelszó</mat-label>
-        <input matInput type="password" required name="password" ngModel />
+        <input matInput type="password" formControlName="password" />
+        <mat-error *ngIf="loginForm.get('password')?.invalid && loginForm.get('password')?.touched">
+          Jelszó megadása kötelező!
+        </mat-error>
       </mat-form-field>
 
-      <button mat-button color="primary" type="submit">Bejelentkezés</button>
+      <div class="error-message" *ngIf="loginError">
+        {{ loginError }}
+      </div>
+
+      <button mat-button color="primary" type="submit" [disabled]="loginForm.invalid">Bejelentkezés</button>
     </form>
 
     <!-- Regisztrációs form -->
-    <form #registerForm="ngForm" (ngSubmit)="register()" class="form-wrapper sign-up-form" *ngIf="isRegisterMode">
+    <form [formGroup]="signUpForm" (ngSubmit)="register()" class="form-wrapper sign-up-form" *ngIf="isRegisterMode">
       <h2>Regisztráció</h2>
 
       <mat-form-field appearance="fill">
         <mat-label>Név</mat-label>
-        <input matInput required name="name" ngModel />
+        <input matInput formControlName="name" />
+        <mat-error *ngIf="signUpForm.get('name')?.invalid && signUpForm.get('name')?.touched">
+          A név legalább 2 karakter legyen!
+        </mat-error>
       </mat-form-field>
 
       <mat-form-field appearance="fill">
         <mat-label>Email</mat-label>
-        <input matInput type="email" required name="email" ngModel />
+        <input matInput type="email" formControlName="email" />
+        <mat-error *ngIf="signUpForm.get('email')?.invalid && signUpForm.get('email')?.touched">
+          Adj meg egy érvényes email címet!
+        </mat-error>
       </mat-form-field>
 
       <mat-form-field appearance="fill">
         <mat-label>Jelszó</mat-label>
-        <input matInput type="password" required name="password" ngModel />
+        <input matInput type="password" formControlName="password" />
+        <mat-error *ngIf="signUpForm.get('password')?.invalid && signUpForm.get('password')?.touched">
+          A jelszó legalább 6 karakter legyen!
+        </mat-error>
       </mat-form-field>
 
-      <button mat-button color="accent" type="submit">Regisztráció</button>
+      <mat-form-field appearance="fill">
+        <mat-label>Jelszó ismét</mat-label>
+        <input matInput type="password" formControlName="rePassword" />
+        <mat-error *ngIf="signUpForm.get('rePassword')?.value !== signUpForm.get('password')?.value && signUpForm.get('rePassword')?.touched">
+          A jelszavak nem egyeznek!
+        </mat-error>
+      </mat-form-field>
+
+      <div class="error-message" *ngIf="signupError">
+        {{ signupError }}
+      </div>
+
+      <button mat-button color="accent" type="submit" [disabled]="signUpForm.invalid">Regisztráció</button>
     </form>
 
   </div>

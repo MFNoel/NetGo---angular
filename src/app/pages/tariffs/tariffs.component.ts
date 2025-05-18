@@ -1,19 +1,10 @@
-import { Component } from '@angular/core';
+import { Component, OnInit  } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
 import { MatCardModule } from '@angular/material/card';
 import { PriceFormatPipe } from '../../pipes/price-format.pipe';
-import { CartService } from '../../services/cart.service';
-
-interface Tariff {
-  name: string;
-  internet: string;
-  calls: string;
-  extra1: string;
-  extra2: string;
-  extra3: string;
-  price: number;
-}
+import { TariffService } from '../../shared/services/tariff.service';
+import { Tariff } from '../../shared/models/Tariff';
 
 @Component({
   selector: 'app-tariffs',
@@ -26,67 +17,24 @@ interface Tariff {
   templateUrl: './tariffs.component.html',
   styleUrls: ['./tariffs.component.css'],
 })
-export class TariffsComponent {
-  tariffs: Tariff[] = [
-    {
-      name: 'NetGo Prime',
-      internet: '60 GB mobilnet',
-      calls: '100 perc beszéd',
-      extra1: 'Korlátlan le-/feltöltési sebesség',
-      extra2: 'További perc- és SMS-díj: 40 Ft',
-      extra3: '60 GB felhasználható az EU roaming 1-es díjzónában a belföldi adatkeretből',
-      price: 11490,
-    },
-    {
-      name: 'NetGo Prime Plus',
-      internet: 'Korlátlan mobilnet',
-      calls: '200 perc beszéd',
-      extra1: 'Korlátlan le-/feltöltési sebesség',
-      extra2: 'További perc- és SMS-díj: 40 Ft',
-      extra3: '60 GB felhasználható az EU roaming 1-es díjzónában a belföldi adatkeretből',
-      price: 13990,
-    },
-    {
-      name: 'NetGo Prime Extra',
-      internet: 'Korlátlan mobilnet',
-      calls: 'Korlátlan beszéd',
-      extra1: '70 GB EU roaming',
-      extra2: 'SMS-díj: 40 Ft',
-      extra3: '70 GB felhasználható az EU roaming 1-es díjzónában a belföldi adatkeretből',
-      price: 16990,
-    },
-    {
-      name: 'NetGo Prime Start',
-      internet: '25 GB mobilnet',
-      calls: '200 perc beszéd',
-      extra1: 'Korlátlan sebesség',
-      extra2: 'További perc- és SMS-díj: 40 Ft',
-      extra3: '25 GB felhasználható az EU roaming 1-es díjzónában a belföldi adatkeretből',
-      price: 8990,
-    },
-    {
-      name: 'NetGo Start',
-      internet: '2 GB mobilnet',
-      calls: '100 perc beszéd',
-      extra1: 'Korlátlan sebesség',
-      extra2: 'További perc- és SMS-díj: 40 Ft',
-      extra3: '2 GB felhasználható az EU roaming 1-es díjzónában a belföldi adatkeretből',
-      price: 4490,
-    },
-    {
-      name: 'NetGo Prime Max',
-      internet: 'Korlátlan mobilnet',
-      calls: 'Korlátlan beszéd',
-      extra1: 'Korlátlan sebesség',
-      extra2: '90 GB EU roaming',
-      extra3: '90 GB felhasználható az EU roaming 1-es díjzónában a belföldi adatkeretből',
-      price: 22990,
-    },
-  ];
+export class TariffsComponent implements OnInit {
+  tariffs: Tariff[] = [];
 
-  constructor(private cartService: CartService, private router: Router) {}
-  
-  addToCart(tariff: any) {
+  constructor(private cartService: TariffService, private router: Router) {}
+
+  ngOnInit(): void {
+    this.loadTariffs();
+  }
+
+  async loadTariffs(): Promise<void> {
+    try {
+      this.tariffs = await this.cartService.getAllTariffs();
+    } catch (error) {
+      console.error('Hiba a tarifák betöltésekor:', error);
+    }
+  }
+
+  addToCart(tariff: Tariff) {
     this.cartService.addToCart(tariff);
     this.router.navigate(['/cart']);
   }
